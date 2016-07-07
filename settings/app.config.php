@@ -1,2 +1,6 @@
 <?php
-$application = new \Your\WebApp\YourApplication();
+namespace Your\WebApp\Settings;
+
+use Your\WebApp\YourApplication;
+
+$application = new YourApplication();
