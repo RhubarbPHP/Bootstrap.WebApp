@@ -7,7 +7,7 @@ use Rhubarb\Crown\Logging\Log;
 use Rhubarb\Crown\Logging\PhpLog;
 use Rhubarb\Stem\StemSettings;
 
-$dbSettings = new StemSettings();
+$dbSettings = StemSettings::singleton();
 $dbSettings->Host = "localhost";
 $dbSettings->Username = "root";
 $dbSettings->Password = "";
