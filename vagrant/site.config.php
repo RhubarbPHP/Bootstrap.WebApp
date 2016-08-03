@@ -8,10 +8,10 @@ use Rhubarb\Crown\Logging\PhpLog;
 use Rhubarb\Stem\StemSettings;
 
 $dbSettings = StemSettings::singleton();
-$dbSettings->Host = "localhost";
-$dbSettings->Username = "root";
-$dbSettings->Password = "";
-$dbSettings->Database = "vagrant";
+$dbSettings->host = "localhost";
+$dbSettings->username = "root";
+$dbSettings->password = "";
+$dbSettings->database = "vagrant";
 
 // Add a PHP logger
 Log::attachLog( new PhpLog( Log::ERROR_LEVEL ) );
