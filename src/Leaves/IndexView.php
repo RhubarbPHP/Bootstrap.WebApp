@@ -1,18 +1,18 @@
 <?php
 
-namespace Your\WebApp\Presenters;
+namespace Your\WebApp\Leaves;
 
 use Rhubarb\Crown\Settings\HtmlPageSettings;
-use Rhubarb\Leaf\Views\HtmlView;
+use Rhubarb\Leaf\Views\View;
 
-class IndexView extends HtmlView
+class IndexView extends View
 {
     protected function printViewContent()
     {
         parent::printViewContent();
 
-        $htmlPageSettings = new HtmlPageSettings();
-        $htmlPageSettings->PageTitle = "You're up and running!";
+        $settings = HtmlPageSettings::singleton();
+        $settings->pageTitle = "You're up and running!";
 
         ?>
         <p>Add more URLs by configuring URL Handlers in the settings/app.config.php file</p>
