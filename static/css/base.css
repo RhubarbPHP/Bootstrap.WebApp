@@ -1,13 +1,26 @@
 body
 {
     margin: 0;
+    background: #C8E6C9;
+    font-family: Sans-Serif;
+    color: #212121;
 }
 
 #top {
-    height: 150px;
-    background: salmon;
+height: 150px;
+background: #4CAF50;
+color: #FFFFFF;
 }
 
 #top,#content,#tail {
     padding: 10px;
 }
+/*Google material design pallet colour pallet*/
+.dark-primary-color    { background: #388E3C; }
+.default-primary-color { background: #4CAF50; }
+.light-primary-color   { background: #C8E6C9; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #795548; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #757575; }
+.divider-color         { border-color: #BDBDBD; }
