@@ -3,6 +3,8 @@
 namespace Your\WebApp\Layouts;
 
 use Rhubarb\Crown\Html\ResourceLoader;
+use Rhubarb\Crown\Layout\LayoutModule;
+use Rhubarb\Crown\Settings\HtmlPageSettings;
 use Rhubarb\Patterns\Layouts\BaseLayout;
 
 class DefaultLayout extends BaseLayout
@@ -18,7 +20,11 @@ class DefaultLayout extends BaseLayout
         <div id="top">
             <?php
 
-            parent::printPageHeading();
+            $title = $this->getTitle();
+
+            if ($title != "") {
+                print "<h1>" . $title . "</h1>";
+            }
 
             ?>
         </div>
@@ -36,5 +42,36 @@ class DefaultLayout extends BaseLayout
 
         </div>
         <?php
+    }
+
+    protected function getTitle()
+    {
+        $pageSettings = HtmlPageSettings::singleton();
+        return $pageSettings->pageTitle;
+    }
+
+    protected function printContent($content)
+    {
+        print $content;
+    }
+
+    protected function printLayout($content)
+    {
+        ?>
+        <html>
+        <head>
+            <title><?= $this->getTitle(); ?></title>
+            <?= LayoutModule::getHeadItemsAsHtml(); ?>
+            <?= ResourceLoader::getResourceInjectionHtml(); ?>
+        </head>
+        <body>
+        <?= LayoutModule::getBodyItemsAsHtml(); ?>
+        <?php $this->printPageHeading(); ?>
+        <?php $this->printContent($content); ?>
+        <?php $this->printTail(); ?>
+        </body>
+        </html>
+        <?php
+
     }
 }
