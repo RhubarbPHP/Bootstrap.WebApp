@@ -25,7 +25,7 @@ class Post extends Model
         $schema->addColumn(
             new AutoIncrementColumn("PostId"),
             new StringColumn("Title", 120),
-            new DateColumn("Date"),//TODO on save if not set new rhubarb date today 
+            new DateColumn("Date"),
             new StringColumn("Content", 500),
             new StringColumn("ImageUrl", 120)
         );

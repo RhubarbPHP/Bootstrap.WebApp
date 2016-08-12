@@ -3,10 +3,10 @@
 namespace Your\WebApp\Leaves;
 
 
-use post;
+use Rhubarb\Crown\DateTime\RhubarbDate;
+use Your\WebApp\Models\Post;
 use Rhubarb\Leaf\Leaves\Leaf;
 use Rhubarb\Leaf\Leaves\LeafModel;
-use Rhubarb\Stem\Models\Model;
 
 class Admin extends Leaf
 {
@@ -36,7 +36,14 @@ class Admin extends Leaf
     protected function onModelCreated()
     {
         parent::onModelCreated();
-        $posts = $this->model->posts;
+        $this->model->posts = Post::all();
+    }
+
+    protected static function makeANewPost($userName, $title, $content, $imageUrl)
+    {
+        $post = new Post();
+        $post->Date = new RhubarbDate("now");
+        $post->User
     }
     
 }
