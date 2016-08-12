@@ -19,11 +19,11 @@ class user extends Model
 
         $schema->addColumn(
             new AutoIncrementColumn("UserId"),
-            new StringColumn("Username"),
-            new StringColumn("Password"),
-            new StringColumn("Forename"),
-            new StringColumn("Surname"),
-            new StringColumn("Bio")
+            new StringColumn("Username", 20),
+            new StringColumn("Password",30),
+            new StringColumn("Forename",20),
+            new StringColumn("Surname",20),
+            new StringColumn("Bio",200)
         );
         return $schema;
     }
