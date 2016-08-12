@@ -2,10 +2,11 @@
 
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
+use Rhubarb\Stem\Schema\Columns\DateColumn;
 use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\ModelSchema;
 
-class user extends Model
+class post extends Model
 {
 
     /**
@@ -15,15 +16,14 @@ class user extends Model
      */
     protected function createSchema()
     {
-        $schema = new ModelSchema("tblUser");
+        $schema = new ModelSchema("tblPost");
 
         $schema->addColumn(
-            new AutoIncrementColumn("UserId"),
-            new StringColumn("Username"),
-            new StringColumn("Password"),
-            new StringColumn("Forename"),
-            new StringColumn("Surname"),
-            new StringColumn("Bio")
+            new AutoIncrementColumn("PostId"),
+            new StringColumn("Title",120),
+            new DateColumn("Date"),
+            new StringColumn("Post",500),
+            new StringColumn("ImageUrl",120)
         );
         return $schema;
     }
