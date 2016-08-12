@@ -1,4 +1,5 @@
 <?php
+namespace Your\WebApp\Models;
 
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
@@ -7,7 +8,7 @@ use Rhubarb\Stem\Schema\Columns\ForeignKeyColumn;
 use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\ModelSchema;
 
-class comment extends Model
+class Comment extends Model
 {
 
     /**
@@ -23,7 +24,7 @@ class comment extends Model
             new AutoIncrementColumn("CommentId"),
             new ForeignKeyColumn("UserId"),
             new ForeignKeyColumn("PostId"),
-            new StringColumn("Comment",200),
+            new StringColumn("Comment", 200),
             new DateColumn("Date")
         );
         return $schema;

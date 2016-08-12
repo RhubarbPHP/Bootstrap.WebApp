@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background: #C8E6C9;
+    background: #FFFFFF;
     font-family: Sans-Serif;
     color: #212121;
 }
@@ -13,6 +13,12 @@ body {
 
 #top, #content, #tail {
     padding: 10px;
+}
+
+.post {
+    background: #C8E6C9;
+    border-radius: 1%;
+    padding: 20px;
 }
 
 /*Google material design pallet colour pallet*/

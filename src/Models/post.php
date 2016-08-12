@@ -1,4 +1,5 @@
 <?php
+namespace Your\WebApp\Models;
 
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
@@ -6,13 +7,16 @@ use Rhubarb\Stem\Schema\Columns\DateColumn;
 use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\ModelSchema;
 
-class post extends Model
+class Post extends Model
 {
 
     /**
-     * Returns the schema for this data object.
-     *
-     * @return \Rhubarb\Stem\Schema\ModelSchema
+     * @return ModelSchema
+     * @property AutoIncrementColumn $PostId
+     * @property StringColumn $Title
+     * @property DateColumn $Date
+     * @property StringColumn $Content
+     * @property StringColumn ImageUrl
      */
     protected function createSchema()
     {
@@ -20,10 +24,10 @@ class post extends Model
 
         $schema->addColumn(
             new AutoIncrementColumn("PostId"),
-            new StringColumn("Title",120),
-            new DateColumn("Date"),
-            new StringColumn("Post",500),
-            new StringColumn("ImageUrl",120)
+            new StringColumn("Title", 120),
+            new DateColumn("Date"),//TODO on save if not set new rhubarb date today 
+            new StringColumn("Content", 500),
+            new StringColumn("ImageUrl", 120)
         );
         return $schema;
     }

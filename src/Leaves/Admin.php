@@ -3,11 +3,15 @@
 namespace Your\WebApp\Leaves;
 
 
+use post;
 use Rhubarb\Leaf\Leaves\Leaf;
 use Rhubarb\Leaf\Leaves\LeafModel;
+use Rhubarb\Stem\Models\Model;
 
 class Admin extends Leaf
 {
+
+    protected $model;
 
     /**
      * Returns the name of the standard view used for this leaf.
@@ -28,4 +32,11 @@ class Admin extends Leaf
     {
         return new AdminModel();
     }
+
+    protected function onModelCreated()
+    {
+        parent::onModelCreated();
+        $posts = $this->model->posts;
+    }
+    
 }

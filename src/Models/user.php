@@ -1,11 +1,12 @@
 <?php
+namespace Your\WebApp\Models;
 
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
 use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\ModelSchema;
 
-class user extends Model
+class User extends Model
 {
 
     /**
@@ -20,10 +21,10 @@ class user extends Model
         $schema->addColumn(
             new AutoIncrementColumn("UserId"),
             new StringColumn("Username", 20),
-            new StringColumn("Password",30),
-            new StringColumn("Forename",20),
-            new StringColumn("Surname",20),
-            new StringColumn("Bio",200)
+            new StringColumn("Password", 30),
+            new StringColumn("Forename", 20),
+            new StringColumn("Surname", 20),
+            new StringColumn("Bio", 200)
         );
         return $schema;
     }

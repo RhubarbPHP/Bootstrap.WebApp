@@ -6,9 +6,11 @@ use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 use Rhubarb\Leaf\LeafModule;
+use Rhubarb\Stem\Schema\SolutionSchema;
 use Rhubarb\Stem\StemModule;
 use Your\WebApp\Layouts\DefaultLayout;
 use Your\WebApp\Leaves\Index;
+use Your\WebApp\Models\MyAppSolutionSchema;
 
 
 class YourApplication extends Application
@@ -23,6 +25,7 @@ class YourApplication extends Application
         {
             include_once(APPLICATION_ROOT_DIR . "settings/site.config.php");
         }
+        SolutionSchema::registerSchema('myApp', MyAppSolutionSchema::class);
 
     }
 

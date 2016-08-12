@@ -7,5 +7,5 @@ use Rhubarb\Leaf\Leaves\LeafModel;
 
 class AdminModel extends LeafModel
 {
-
+    public $posts = [];
 }
