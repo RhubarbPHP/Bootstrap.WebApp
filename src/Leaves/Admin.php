@@ -39,11 +39,15 @@ class Admin extends Leaf
         $this->model->posts = Post::all();
     }
 
-    protected static function makeANewPost($userName, $title, $content, $imageUrl)
+    protected static function makeANewPost($userName, $title, $content, $imageUrl = "")
     {
         $post = new Post();
         $post->Date = new RhubarbDate("now");
-        $post->User
+        $post->User = $userName;
+        $post->Content = $content;
+        $post->Title = $title;
+        $post->ImageUrl = $imageUrl;
+        $post->save();
     }
-    
+
 }

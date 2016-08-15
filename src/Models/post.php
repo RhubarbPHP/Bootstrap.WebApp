@@ -24,6 +24,7 @@ class Post extends Model
 
         $schema->addColumn(
             new AutoIncrementColumn("PostId"),
+            new StringColumn("User", 30),
             new StringColumn("Title", 120),
             new DateColumn("Date"),
             new StringColumn("Content", 500),
