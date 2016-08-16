@@ -9,6 +9,7 @@ use Rhubarb\Leaf\LeafModule;
 use Rhubarb\Stem\Schema\SolutionSchema;
 use Rhubarb\Stem\StemModule;
 use Your\WebApp\Layouts\DefaultLayout;
+use Your\WebApp\Leaves\Admin;
 use Your\WebApp\Leaves\Index;
 use Your\WebApp\Models\MyAppSolutionSchema;
 
@@ -39,7 +40,8 @@ class YourApplication extends Application
         // the MvpUrlHandler and CrudUrlHandler
         $this->addUrlHandlers(
             [
-                "/" => new ClassMappedUrlHandler(Index::class)
+                "/app/" => new ClassMappedUrlHandler(Index::class),
+                "/admin/" => new ClassMappedUrlHandler(Admin::class)
             ]
         );
     }

@@ -12,6 +12,7 @@ class Admin extends Leaf
 {
 
     protected $model;
+    protected $submitEvent;
 
     /**
      * Returns the name of the standard view used for this leaf.
@@ -37,9 +38,14 @@ class Admin extends Leaf
     {
         parent::onModelCreated();
         $this->model->posts = Post::all();
+        $this->model->submitEvent->attachHandler(function () {
+            $postTitle = $this->model->postTitle;
+            $postContent = $this->model->postContent;
+            $this->makeANewPost($postTitle, $postContent);
+        });
     }
 
-    protected static function makeANewPost($userName, $title, $content, $imageUrl = "")
+    protected function makeANewPost($title, $content, $userName = "", $imageUrl = "")
     {
         $post = new Post();
         $post->Date = new RhubarbDate("now");

@@ -34,11 +34,11 @@ class Index extends Leaf
     {
         parent::onModelCreated();
         $posts = Post::all();
-        $test = new Post();
-        $test->Title = "First Post!";
-        $test->Date = new RhubarbDate("now");
-        $test->Content = "This is the content of my first blog post!!";
-        $test->save();
+//        $test = new Post();
+//        $test->Title = "First Post!";
+//        $test->Date = new RhubarbDate("now");
+//        $test->Content = "This is the content of my first blog post!!";
+//        $test->save();
         $this->model->posts = $posts;
     }
 }
