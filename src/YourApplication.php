@@ -6,6 +6,8 @@ use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 use Rhubarb\Leaf\LeafModule;
+use Rhubarb\Stem\Repositories\MySql\MySql;
+use Rhubarb\Stem\Repositories\Repository;
 use Rhubarb\Stem\Schema\SolutionSchema;
 use Rhubarb\Stem\StemModule;
 use Your\WebApp\Layouts\DefaultLayout;
@@ -22,11 +24,13 @@ class YourApplication extends Application
 
         $this->developerMode = true;
 
-        if(file_exists(APPLICATION_ROOT_DIR . "settings/site.config.php"))
+        if(file_exists(APPLICATION_ROOT_DIR . "/settings/site.config.php"))
         {
-            include_once(APPLICATION_ROOT_DIR . "settings/site.config.php");
+            include_once(APPLICATION_ROOT_DIR . "/settings/site.config.php");
         }
+
         SolutionSchema::registerSchema('myApp', MyAppSolutionSchema::class);
+        Repository::setDefaultRepositoryClassName(MySql::class);
 
     }
 

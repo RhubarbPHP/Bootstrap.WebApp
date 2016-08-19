@@ -38,6 +38,10 @@ class Admin extends Leaf
     {
         parent::onModelCreated();
         $this->model->posts = Post::all();
+        
+        $this->model->postTitle;
+        $this->model->postContent;
+
         $this->model->submitEvent->attachHandler(function () {
             $postTitle = $this->model->postTitle;
             $postContent = $this->model->postContent;

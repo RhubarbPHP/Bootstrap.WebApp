@@ -7,11 +7,11 @@ use Rhubarb\Stem\Schema\SolutionSchema;
 
 class MyAppSolutionSchema extends SolutionSchema
 {
-    public function __construct()
+    public function __construct($version = 0.01)
     {
         parent::__construct();
-        $this->addModel('Post', Post::class);
-        $this->addModel('User', Comment::class);
-        $this->addModel('Comment', User::class);
+        $this->addModel('Post', Post::class, 0.1);
+        $this->addModel('User', Comment::class, 0.1);
+        $this->addModel('Comment', User::class, 0.1);
     }
 }

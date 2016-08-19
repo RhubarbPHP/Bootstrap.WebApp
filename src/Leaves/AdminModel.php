@@ -9,9 +9,8 @@ use Rhubarb\Leaf\Leaves\LeafModel;
 class AdminModel extends LeafModel
 {
     public $submitEvent;
-    public $postTitle;
-    public $postContent;
-    public $submit;
+    public $postTitle = "";
+    public $postContent = "";
 
     public function __construct()
     {
