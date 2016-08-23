@@ -35,8 +35,12 @@ class AdminView extends View
         $settings = HtmlPageSettings::singleton();
         $settings->pageTitle = "Compost Corner: Admin";
         print "<div id='postArea'>";
+        print "<h1>New Post</h1>";
+        print "<h2>Post Title</h2>";
         print $this->leaves["postTitle"];
+        print "<h2>Post Content</h2>";
         print $this->leaves["postContent"];
+        print "<br>";
         print $this->leaves["SubmitPost"];
         print "</post>";
     }
