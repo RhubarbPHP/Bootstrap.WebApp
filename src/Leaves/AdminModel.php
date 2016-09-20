@@ -11,6 +11,7 @@ class AdminModel extends LeafModel
     public $submitEvent;
     public $postTitle = "";
     public $postContent = "";
+    public $savePressedEvent;
 
     public function __construct()
     {

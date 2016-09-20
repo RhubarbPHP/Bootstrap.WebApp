@@ -11,7 +11,8 @@
         "rhubarbphp/module-stem": "*",
         "rhubarbphp/module-leaf": "*",
         "rhubarbphp/module-patterns": "*",
-        "rhubarbphp/module-leaf-common-controls": "*"
+        "rhubarbphp/module-leaf-common-controls": "*",
+        "rhubarbphp/module-leaf-crud": "^1.0"
     },
     "config":
     {

@@ -4,7 +4,9 @@ namespace Your\WebApp;
 
 use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Layout\LayoutModule;
+use Rhubarb\Crown\String\StringTools;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
+use Rhubarb\Leaf\Crud\UrlHandlers\CrudUrlHandler;
 use Rhubarb\Leaf\LeafModule;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 use Rhubarb\Stem\Repositories\Repository;
@@ -13,7 +15,11 @@ use Rhubarb\Stem\StemModule;
 use Your\WebApp\Layouts\DefaultLayout;
 use Your\WebApp\Leaves\Admin;
 use Your\WebApp\Leaves\Index;
+
+
+use Your\WebApp\Leaves\Posts\PostsCollection;
 use Your\WebApp\Models\MyAppSolutionSchema;
+use Your\WebApp\Models\Post;
 
 
 class YourApplication extends Application
@@ -24,8 +30,7 @@ class YourApplication extends Application
 
         $this->developerMode = true;
 
-        if(file_exists(APPLICATION_ROOT_DIR . "/settings/site.config.php"))
-        {
+        if (file_exists(APPLICATION_ROOT_DIR . "/settings/site.config.php")) {
             include_once(APPLICATION_ROOT_DIR . "/settings/site.config.php");
         }
 
@@ -44,8 +49,10 @@ class YourApplication extends Application
         // the MvpUrlHandler and CrudUrlHandler
         $this->addUrlHandlers(
             [
-                "/app/" => new ClassMappedUrlHandler(Index::class),
-                "/admin/" => new ClassMappedUrlHandler(Admin::class)
+                "/" => new ClassMappedUrlHandler(Index::class, [
+                    "admin/" => new ClassMappedUrlHandler(Admin::class),
+                    "posts/" => new CrudUrlHandler(Post::class, StringTools::getNamespaceFromClass(PostsCollection::class))
+                ])
             ]
         );
     }
