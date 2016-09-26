@@ -18,8 +18,10 @@ use Your\WebApp\Leaves\Index;
 
 
 use Your\WebApp\Leaves\Posts\PostsCollection;
+use Your\WebApp\Leaves\Users\UsersCollection;
 use Your\WebApp\Models\MyAppSolutionSchema;
 use Your\WebApp\Models\Post;
+use Your\WebApp\Models\User;
 
 
 class YourApplication extends Application
@@ -50,8 +52,10 @@ class YourApplication extends Application
         $this->addUrlHandlers(
             [
                 "/" => new ClassMappedUrlHandler(Index::class, [
-                    "admin/" => new ClassMappedUrlHandler(Admin::class),
-                    "posts/" => new CrudUrlHandler(Post::class, StringTools::getNamespaceFromClass(PostsCollection::class))
+                    "admin/" => new ClassMappedUrlHandler(Admin::class, [
+                        "posts/" => new CrudUrlHandler(Post::class, StringTools::getNamespaceFromClass(PostsCollection::class)),
+                        "users/" => new CrudUrlHandler(User::class, StringTools::getNamespaceFromClass(UsersCollection::class))
+                    ]),
                 ])
             ]
         );

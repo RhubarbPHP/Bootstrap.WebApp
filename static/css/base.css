@@ -6,8 +6,12 @@ body {
 }
 
 #top {
-    height: 150px;
+    height: 75px;
     background: #4CAF50;
+}
+
+#top a {
+    text-decoration: none;
     color: #FFFFFF;
 }
 

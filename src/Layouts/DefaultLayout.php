@@ -47,6 +47,7 @@ class DefaultLayout extends BaseLayout
     protected function getTitle()
     {
         $pageSettings = HtmlPageSettings::singleton();
+        $pageSettings->pageTitle = "<a href='/'>Compost Corner</a>";
         return $pageSettings->pageTitle;
     }
 

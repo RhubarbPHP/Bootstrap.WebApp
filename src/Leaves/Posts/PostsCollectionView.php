@@ -11,6 +11,7 @@ class PostsCollectionView extends CrudView
     {
         parent::printViewContent();
         $posts = Post::all();
+        print "<a href='add/'>New Post</a>";
         if(sizeof($posts) > 0){
         print<<<HTML
 <table>
