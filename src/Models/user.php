@@ -6,6 +6,16 @@ use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
 use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\ModelSchema;
 
+/**
+ *
+ *
+ * @property int $UserId Repository field
+ * @property string $Username Repository field
+ * @property string $Password Repository field
+ * @property string $Forename Repository field
+ * @property string $Surname Repository field
+ * @property string $Bio Repository field
+ */
 class User extends Model
 {
 

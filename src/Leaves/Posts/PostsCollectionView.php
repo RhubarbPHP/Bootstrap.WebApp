@@ -1,19 +1,41 @@
 <?php
 namespace Your\WebApp\Leaves\Posts;
-use Rhubarb\Leaf\Crud\Leaves\CrudView;
 
-/**
- * Created by PhpStorm.
- * User: janderson
- * Date: 20/09/2016
- * Time: 15:52
- */
+use Rhubarb\Leaf\Crud\Leaves\CrudView;
+use Your\WebApp\Models\Post;
+
+
 class PostsCollectionView extends CrudView
 {
     protected function printViewContent()
     {
         parent::printViewContent();
-        print "This is the posts collection page!";
+        $posts = Post::all();
+        if(sizeof($posts) > 0){
+        print<<<HTML
+<table>
+    <thead>
+        <tr>
+            <td></td>
+            <td>User</td>
+            <td>Title</td>
+            <td>Date</td>
+            <td>Content</td>
+        </tr>
+    </thead>
+HTML;
+            foreach ($posts as $post) {
+                print<<<HTML
+<tr>
+            <td><a href="$post->PostId/edit/">Edit</a> </td>
+            <td>$post->User</td>
+            <td>$post->Title</td>
+            <td>$post->Date</td>
+            <td>$post->Content</td>
+        </tr>
+HTML;
+            }
+            print "</table>";
+        }
     }
-
 }

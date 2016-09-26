@@ -8,6 +8,15 @@ use Rhubarb\Stem\Schema\Columns\ForeignKeyColumn;
 use Rhubarb\Stem\Schema\Columns\StringColumn;
 use Rhubarb\Stem\Schema\ModelSchema;
 
+/**
+ *
+ *
+ * @property int $CommentId Repository field
+ * @property int $UserId Repository field
+ * @property int $PostId Repository field
+ * @property string $Comment Repository field
+ * @property \Rhubarb\Crown\DateTime\RhubarbDate $Date Repository field
+ */
 class Comment extends Model
 {
 
