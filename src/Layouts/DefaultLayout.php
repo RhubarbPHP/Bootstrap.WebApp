@@ -23,7 +23,7 @@ class DefaultLayout extends BaseLayout
             $title = $this->getTitle();
 
             if ($title != "") {
-                print "<h1>" . $title . "</h1>";
+                print "<h1><a href='/'>" . $title . "</a></h1>";
             }
 
             ?>
@@ -47,7 +47,7 @@ class DefaultLayout extends BaseLayout
     protected function getTitle()
     {
         $pageSettings = HtmlPageSettings::singleton();
-        $pageSettings->pageTitle = "<a href='/'>Compost Corner</a>";
+        $pageSettings->pageTitle = "Compost Corner";
         return $pageSettings->pageTitle;
     }
 
@@ -61,7 +61,7 @@ class DefaultLayout extends BaseLayout
         ?>
         <html>
         <head>
-            <title><?= $this->getTitle(); ?></title>
+            <title><?= $this->getTitle(); ?> </title>
             <?= LayoutModule::getHeadItemsAsHtml(); ?>
             <?= ResourceLoader::getResourceInjectionHtml(); ?>
         </head>
