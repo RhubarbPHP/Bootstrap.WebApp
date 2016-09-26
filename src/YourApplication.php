@@ -3,11 +3,17 @@
 namespace Your\WebApp;
 
 use Rhubarb\Crown\Application;
+use Rhubarb\Crown\DependencyInjection\Container;
+use Rhubarb\Crown\Encryption\HashProvider;
+use Rhubarb\Crown\Encryption\Sha512HashProvider;
 use Rhubarb\Crown\Layout\LayoutModule;
+use Rhubarb\Crown\LoginProviders\LoginProvider;
+use Rhubarb\Crown\LoginProviders\UrlHandlers\ValidateLoginUrlHandler;
 use Rhubarb\Crown\String\StringTools;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 use Rhubarb\Leaf\Crud\UrlHandlers\CrudUrlHandler;
 use Rhubarb\Leaf\LeafModule;
+use Rhubarb\Scaffolds\Authentication\Leaves\Login;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 use Rhubarb\Stem\Repositories\Repository;
 use Rhubarb\Stem\Schema\SolutionSchema;
@@ -15,9 +21,8 @@ use Rhubarb\Stem\StemModule;
 use Your\WebApp\Layouts\DefaultLayout;
 use Your\WebApp\Leaves\Admin;
 use Your\WebApp\Leaves\Index;
-
-
 use Your\WebApp\Leaves\Posts\PostsCollection;
+use Your\WebApp\Leaves\SiteLogin;
 use Your\WebApp\Leaves\Users\UsersCollection;
 use Your\WebApp\Models\MyAppSolutionSchema;
 use Your\WebApp\Models\Post;
@@ -38,7 +43,8 @@ class YourApplication extends Application
 
         SolutionSchema::registerSchema('myApp', MyAppSolutionSchema::class);
         Repository::setDefaultRepositoryClassName(MySql::class);
-
+        HashProvider::setProviderClassName(Sha512HashProvider::class);
+        LoginProvider::setProviderClassName(SiteLogin::class);
     }
 
     protected function registerUrlHandlers()
@@ -46,12 +52,16 @@ class YourApplication extends Application
         parent::registerUrlHandlers();
 
 
+        $this->addUrlHandlers(
+            ["/admin/" => new ValidateLoginUrlHandler(new SiteLogin(), "/login/")]
+        );
         // Add a simple home page URL handler . We're using one of the simplest handlers the
         // ClassMappedUrlHandler, but you should look at the other handlers particularly
         // the MvpUrlHandler and CrudUrlHandler
         $this->addUrlHandlers(
             [
                 "/" => new ClassMappedUrlHandler(Index::class, [
+                    "login/" => new ClassMappedUrlHandler(Login::class),
                     "admin/" => new ClassMappedUrlHandler(Admin::class, [
                         "posts/" => new CrudUrlHandler(Post::class, StringTools::getNamespaceFromClass(PostsCollection::class)),
                         "users/" => new CrudUrlHandler(User::class, StringTools::getNamespaceFromClass(UsersCollection::class))
@@ -59,6 +69,10 @@ class YourApplication extends Application
                 ])
             ]
         );
+//
+//        $this->addUrlHandlers([
+//            "/admin/" => new ValidateLoginUrlHandler(new SiteLogin(), "/login/")
+//        ]);
     }
 
     /**

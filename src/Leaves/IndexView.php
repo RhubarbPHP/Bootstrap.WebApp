@@ -17,6 +17,7 @@ class IndexView extends View
         $posts = $this->model->posts;
         ?>
         <h1>Welcome to Compost Corner!</h1>
+        <a href="/admin/">Admin</a>
         <h2>Recent</h2>
         <?php
         echo "Total Number of posts: " . sizeof($posts);

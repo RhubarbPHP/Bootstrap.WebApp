@@ -12,7 +12,8 @@
         "rhubarbphp/module-leaf": "*",
         "rhubarbphp/module-patterns": "*",
         "rhubarbphp/module-leaf-common-controls": "*",
-        "rhubarbphp/module-leaf-crud": "^1.0"
+        "rhubarbphp/module-leaf-crud": "^1.0",
+        "rhubarbphp/scaffold-authentication": "^1.0"
     },
     "config":
     {
