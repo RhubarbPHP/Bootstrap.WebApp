@@ -10,9 +10,7 @@ class UsersItemView extends CrudView
         $this->registerSubLeaf(
           "Username",
           "Forename",
-          "Surname",
-          "Password",
-          "Bio"
+          "Surname"
         );
     }
 
@@ -22,11 +20,11 @@ class UsersItemView extends CrudView
         print "Username<br>" . $this->leaves["Username"] . "<br>";
         print "Forename<br>" . $this->leaves["Forename"] . "<br>";
         print "Surname<br>" . $this->leaves["Surname"] . "<br>";
-        print "Password<br>" . $this->leaves["Password"] . "<br>";
-        print "Bio<br>" . $this->leaves["Bio"] . "<br>";
-        print $this->leaves["Save"];
+//        print $this->leaves["Save"]; ///TODO: It is not possible to create a user from here
         print $this->leaves["Cancel"];
         print $this->leaves["Delete"];
+
+        /// TODO: Password reset and creation ability
     }
 
 }

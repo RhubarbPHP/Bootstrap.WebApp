@@ -14,6 +14,7 @@ use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 use Rhubarb\Leaf\Crud\UrlHandlers\CrudUrlHandler;
 use Rhubarb\Leaf\LeafModule;
 use Rhubarb\Scaffolds\Authentication\Leaves\Login;
+use Rhubarb\Scaffolds\Authentication\User;
 use Rhubarb\Stem\Custard\SeedDemoDataCommand;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 use Rhubarb\Stem\Repositories\Repository;
@@ -28,7 +29,7 @@ use Your\WebApp\Leaves\SiteLogin;
 use Your\WebApp\Leaves\Users\UsersCollection;
 use Your\WebApp\Models\MyAppSolutionSchema;
 use Your\WebApp\Models\Post;
-use Your\WebApp\Models\User;
+
 
 
 class YourApplication extends Application

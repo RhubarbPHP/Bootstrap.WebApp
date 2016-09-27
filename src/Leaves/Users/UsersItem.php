@@ -14,6 +14,6 @@ class UsersItem extends CrudLeaf
      */
     protected function getViewClass()
     {
-        return UsersItemView::class;
+            return UsersItemView::class;
     }
 }
