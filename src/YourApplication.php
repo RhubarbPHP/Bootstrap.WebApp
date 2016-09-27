@@ -14,10 +14,12 @@ use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 use Rhubarb\Leaf\Crud\UrlHandlers\CrudUrlHandler;
 use Rhubarb\Leaf\LeafModule;
 use Rhubarb\Scaffolds\Authentication\Leaves\Login;
+use Rhubarb\Stem\Custard\SeedDemoDataCommand;
 use Rhubarb\Stem\Repositories\MySql\MySql;
 use Rhubarb\Stem\Repositories\Repository;
 use Rhubarb\Stem\Schema\SolutionSchema;
 use Rhubarb\Stem\StemModule;
+use Your\WebApp\Custard\CompostDataSeeder;
 use Your\WebApp\Layouts\DefaultLayout;
 use Your\WebApp\Leaves\Admin;
 use Your\WebApp\Leaves\Index;
@@ -86,4 +88,11 @@ class YourApplication extends Application
             new StemModule()
         ];
     }
+
+    public function getCustardCommands()
+    {
+        SeedDemoDataCommand::registerDemoDataSeeder(new CompostDataSeeder());
+        return parent::getCustardCommands();
+    }
+
 }
