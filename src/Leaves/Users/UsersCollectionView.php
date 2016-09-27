@@ -29,7 +29,6 @@ class UsersCollectionView extends CrudView
             <td>Surname</td>
         </tr>
     </thead>
-</table>
 HTML;
             foreach ($users as $user) {
             print<<<HTML
