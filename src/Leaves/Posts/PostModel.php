@@ -5,5 +5,5 @@ use Rhubarb\Leaf\Crud\Leaves\CrudModel;
 
 class PostModel extends CrudModel
 {
-
+    public $image;
 }

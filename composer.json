@@ -13,6 +13,7 @@
         "rhubarbphp/module-patterns": "*",
         "rhubarbphp/module-leaf-common-controls": "*",
         "rhubarbphp/module-leaf-crud": "^1.0",
+        "rhubarbphp/module-leaf-html5upload": "dev-master",
         "rhubarbphp/scaffold-authentication": "^1.0"
     },
     "config":
