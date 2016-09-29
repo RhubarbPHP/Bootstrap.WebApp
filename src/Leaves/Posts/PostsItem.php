@@ -20,7 +20,7 @@ class PostsItem extends CrudLeaf
     {
         return PostsItemView::class;
     }
-
+    
     protected function redirectAfterSave()
     {
         parent::redirectAfterSave();
@@ -30,12 +30,4 @@ class PostsItem extends CrudLeaf
     {
         parent::redirectAfterCancel();
     }
-
-    protected function onModelCreated()
-    {
-        parent::onModelCreated();
-
-    }
-
-
 }

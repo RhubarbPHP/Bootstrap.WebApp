@@ -4,10 +4,29 @@ namespace Your\WebApp\Leaves;
 
 use Rhubarb\Crown\Settings\HtmlPageSettings;
 use Rhubarb\Leaf\Views\View;
+use Your\WebApp\Leaves\TwitterFeed\TwitterFeed;
+use Your\WebApp\Leaves\Weather\Weather;
 
 class IndexView extends View
 {
     protected $model;
+
+    protected function createSubLeaves()
+    {
+        parent::createSubLeaves();
+        $this->registerSubLeaf(
+          $twitter = new TwitterFeed("Twitter"),
+            $weather = new Weather("Weather")
+        );
+
+        $twitter->setUsername("gcdtechnologies");
+        $twitter->setLinkColor("#19CF86");
+        $twitter->setHeight("250px");
+        $twitter->setWidth("250px");
+
+        $weather->displayUserLocation(true);
+    }
+
 
     protected function printViewContent()
     {
@@ -29,6 +48,8 @@ class IndexView extends View
                 echo '</div>';
             }
         }
+        print $this->leaves["Twitter"];
+        print $this->leaves["Weather"];
         ?>
         <?php
     }
