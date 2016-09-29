@@ -12,6 +12,6 @@ class PostItem extends CrudLeaf
      */
     protected function getViewClass()
     {
-        return PostItemView::class;
+        return PostsItemView::class;
     }
 }
