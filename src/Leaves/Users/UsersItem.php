@@ -6,7 +6,10 @@ use Your\WebApp\Models\User;
 
 class UsersItem extends CrudLeaf
 {
-
+    /**
+     * @var UserModel
+     */
+    protected $model;
     /**
      * Returns the name of the standard view used for this leaf.
      *
@@ -16,4 +19,11 @@ class UsersItem extends CrudLeaf
     {
             return UsersItemView::class;
     }
+
+    protected function onModelCreated()
+    {
+        parent::onModelCreated();
+    }
+
+
 }

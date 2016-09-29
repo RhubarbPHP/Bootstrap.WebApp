@@ -18,21 +18,17 @@ class PostsCollectionView extends CrudView
     <thead>
         <tr>
             <td></td>
-            <td>User</td>
             <td>Title</td>
-            <td>Date</td>
-            <td>Content</td>
+            <td>Date Created</td>
         </tr>
     </thead>
 HTML;
             foreach ($posts as $post) {
                 print<<<HTML
 <tr>
-            <td><a href="$post->PostId/edit/">Edit</a> </td>
-            <td>$post->User</td>
+            <td><a href="$post->PostId/">Edit</a> </td>
             <td>$post->Title</td>
             <td>$post->Date</td>
-            <td>$post->Content</td>
         </tr>
 HTML;
             }

@@ -2,12 +2,6 @@
 namespace Your\WebApp\Leaves\Posts;
 use Rhubarb\Leaf\Crud\Leaves\CrudLeaf;
 
-/**
- * Created by PhpStorm.
- * User: janderson
- * Date: 20/09/2016
- * Time: 15:52
- */
 class PostItem extends CrudLeaf
 {
 
@@ -18,6 +12,6 @@ class PostItem extends CrudLeaf
      */
     protected function getViewClass()
     {
-        // TODO: Implement getViewClass() method.
+        return PostItemView::class;
     }
 }

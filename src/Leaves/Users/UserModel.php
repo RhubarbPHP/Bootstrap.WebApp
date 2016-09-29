@@ -5,5 +5,4 @@ use Rhubarb\Leaf\Crud\Leaves\CrudModel;
 
 class UserModel extends CrudModel
 {
-
 }

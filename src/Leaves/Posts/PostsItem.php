@@ -2,7 +2,6 @@
 
 namespace Your\WebApp\Leaves\Posts;
 
-
 use Rhubarb\Leaf\Crud\Leaves\CrudLeaf;
 
 class PostsItem extends CrudLeaf

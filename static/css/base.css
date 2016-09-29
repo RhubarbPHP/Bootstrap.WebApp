@@ -5,8 +5,16 @@ body {
     color: #212121;
 }
 
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #212121;
+}
+
 #top {
-    height: 75px;
+    height: 100px;
     background: #4CAF50;
 }
 
@@ -25,37 +33,11 @@ body {
     padding: 20px;
     margin-bottom: 5px;
 }
-
-/*Google material design pallet colour pallet*/
-.dark-primary-color {
-    background: #388E3C;
+.helloUser {
+    float: right;
+    display: inline;
 }
 
-.default-primary-color {
-    background: #4CAF50;
+.loginLink {
+    float: right;
 }
-
-.light-primary-color {
-    background: #C8E6C9;
-}
-
-.text-primary-color {
-    color: #FFFFFF;
-}
-
-.accent-color {
-    background: #795548;
-}
-
-.primary-text-color {
-    color: #212121;
-}
-
-.secondary-text-color {
-    color: #757575;
-}
-
-.divider-color {
-    border-color: #BDBDBD;
-}
-

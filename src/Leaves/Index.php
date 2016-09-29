@@ -2,7 +2,6 @@
 
 namespace Your\WebApp\Leaves;
 
-use Rhubarb\Crown\DateTime\RhubarbDate;
 use Your\WebApp\Models\Post;
 use Rhubarb\Leaf\Leaves\Leaf;
 use Rhubarb\Leaf\Leaves\LeafModel;

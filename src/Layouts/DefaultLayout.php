@@ -2,10 +2,13 @@
 
 namespace Your\WebApp\Layouts;
 
+use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Settings\HtmlPageSettings;
 use Rhubarb\Patterns\Layouts\BaseLayout;
+use Rhubarb\Scaffolds\Authentication\User;
+use Your\WebApp\Leaves\SiteLogin;
 
 class DefaultLayout extends BaseLayout
 {
@@ -24,6 +27,16 @@ class DefaultLayout extends BaseLayout
 
             if ($title != "") {
                 print "<h1><a href='/'>" . $title . "</a></h1>";
+            }
+            $siteLogin = SiteLogin::singleton();
+
+            if ( $siteLogin->isLoggedIn() )
+            {
+                print "<div class='helloUser'>Welcome back ".$siteLogin->getModel()->Forename."!<a href=\"/admin/\"> | Admin Area |</a><a href='/login/?logout=1'> Log Out</a></div>";
+            }
+            else
+            {
+                print "<div class='loginLink'><a href='/login/'>Login</a> </div>";
             }
 
             ?>

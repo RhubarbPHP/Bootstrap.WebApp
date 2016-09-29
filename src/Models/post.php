@@ -1,6 +1,7 @@
 <?php
 namespace Your\WebApp\Models;
 
+use Rhubarb\Crown\DateTime\RhubarbDate;
 use Rhubarb\Stem\Models\Model;
 use Rhubarb\Stem\Schema\Columns\AutoIncrementColumn;
 use Rhubarb\Stem\Schema\Columns\DateColumn;
@@ -43,4 +44,15 @@ class Post extends Model
         );
         return $schema;
     }
+
+    //Save the date that the post was created
+    protected function beforeSave()
+    {
+        parent::beforeSave();
+        if($this->isNewRecord()){
+            $this->Date = new RhubarbDate("now");
+        }
+    }
+
+
 }
