@@ -19,9 +19,9 @@ class YourApplication extends Application
 
         $this->developerMode = true;
 
-        if(file_exists(APPLICATION_ROOT_DIR . "settings/site.config.php"))
+        if(file_exists(APPLICATION_ROOT_DIR . "/settings/site.config.php"))
         {
-            include_once(APPLICATION_ROOT_DIR . "settings/site.config.php");
+            include_once(APPLICATION_ROOT_DIR . "/settings/site.config.php");
         }
 
     }
@@ -53,3 +53,4 @@ class YourApplication extends Application
         ];
     }
 }
+
