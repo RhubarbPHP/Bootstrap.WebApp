@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.box = "centos_php70.box"
   config.ssh.password = "vagrant"
-  config.vm.box_url = "http://files.gcdtech.com/vagrant/centos_php70.box"
+  config.vm.box_url = "https://s3.eu-west-2.amazonaws.com/gcd-vagrant/centos_php70.box"
   config.vm.provision "shell", :path => "vagrant/provision.sh"
 
   config.vm.network "forwarded_port", guest: 80, host: 8080
