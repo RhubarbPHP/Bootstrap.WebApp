@@ -2,10 +2,13 @@
 
 namespace Your\WebApp\Layouts;
 
+use Rhubarb\Crown\Application;
 use Rhubarb\Crown\Html\ResourceLoader;
 use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\Settings\HtmlPageSettings;
 use Rhubarb\Patterns\Layouts\BaseLayout;
+use Rhubarb\Scaffolds\Authentication\User;
+use Your\WebApp\Leaves\SiteLogin;
 
 class DefaultLayout extends BaseLayout
 {
@@ -23,7 +26,17 @@ class DefaultLayout extends BaseLayout
             $title = $this->getTitle();
 
             if ($title != "") {
-                print "<h1>" . $title . "</h1>";
+                print "<h1><a href='/'>" . $title . "</a></h1>";
+            }
+            $siteLogin = SiteLogin::singleton();
+
+            if ( $siteLogin->isLoggedIn() )
+            {
+                print "<div class='helloUser'>Welcome back ".$siteLogin->getModel()->Forename."!<a href=\"/admin/\"> | Admin Area |</a><a href='/login/?logout=1'> Log Out</a></div>";
+            }
+            else
+            {
+                print "<div class='loginLink'><a href='/login/'>Login</a> </div>";
             }
 
             ?>
@@ -47,6 +60,7 @@ class DefaultLayout extends BaseLayout
     protected function getTitle()
     {
         $pageSettings = HtmlPageSettings::singleton();
+        $pageSettings->pageTitle = "Compost Corner";
         return $pageSettings->pageTitle;
     }
 
@@ -60,7 +74,7 @@ class DefaultLayout extends BaseLayout
         ?>
         <html>
         <head>
-            <title><?= $this->getTitle(); ?></title>
+            <title><?= $this->getTitle(); ?> </title>
             <?= LayoutModule::getHeadItemsAsHtml(); ?>
             <?= ResourceLoader::getResourceInjectionHtml(); ?>
         </head>

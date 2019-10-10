@@ -6,5 +6,5 @@ use Rhubarb\Leaf\Leaves\LeafModel;
 
 class IndexModel extends LeafModel
 {
-    
+    public $posts = [];
 }

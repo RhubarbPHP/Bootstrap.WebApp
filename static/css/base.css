@@ -1,13 +1,51 @@
-body
-{
+body {
     margin: 0;
+    background: #FFFFFF;
+    font-family: Sans-Serif;
+    color: #212121;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #212121;
 }
 
 #top {
-    height: 150px;
-    background: salmon;
+    height: 100px;
+    background: #4CAF50;
 }
 
-#top,#content,#tail {
+#top a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#top, #content, #tail {
     padding: 10px;
+}
+
+.post {
+    background: #C8E6C9;
+    border-radius: 1%;
+    padding: 20px;
+    margin-bottom: 5px;
+}
+.helloUser {
+    float: right;
+    display: inline;
+}
+
+.loginLink {
+    float: right;
+}
+
+.twitter-timeline {
+    float: right;
+}
+
+.weather {
+
 }
