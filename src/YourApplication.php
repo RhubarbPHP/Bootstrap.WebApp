@@ -40,10 +40,6 @@ class YourApplication extends Application
 
         $this->developerMode = true;
 
-        if (file_exists(APPLICATION_ROOT_DIR . "/settings/site.config.php")) {
-            include_once(APPLICATION_ROOT_DIR . "/settings/site.config.php");
-        }
-
         SolutionSchema::registerSchema('myApp', MyAppSolutionSchema::class);
         Repository::setDefaultRepositoryClassName(MySql::class);
         HashProvider::setProviderClassName(Sha512HashProvider::class);
@@ -72,10 +68,6 @@ class YourApplication extends Application
                 ])
             ]
         );
-//
-//        $this->addUrlHandlers([
-//            "/admin/" => new ValidateLoginUrlHandler(new SiteLogin(), "/login/")
-//        ]);
     }
 
     /**
