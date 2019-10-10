@@ -1,0 +1,66 @@
+version: "3.6"
+
+volumes:
+  deployed:
+  db-data:
+
+networks:
+  database:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.255.144.0/24
+  data:
+
+services:
+
+  app:
+    container_name: bs_app
+    build: ./docker
+    ports:
+      - "8080:80"
+    volumes:
+      - type: volume
+        source: deployed
+        target: /var/www/html/deployed
+        consistency: delegated
+      - type: bind
+        source: ./
+        target: /var/www/html
+        consistency: delegated
+        volume:
+          nocopy: true
+    depends_on:
+      - db
+    environment:
+      PHP_IDE_CONFIG: serverName=cli
+    networks:
+      data:
+        aliases:
+          - app
+      database:
+        aliases:
+          - app
+        ipv4_address: 172.255.144.10
+
+  db:
+    container_name: bs_db
+    image: mysql:5.7
+    command: --sql_mode=""
+    ports:
+      - "8312:3306"
+    environment:
+      MYSQL_USER: blog
+      MYSQL_PASSWORD: blog
+      MYSQL_ROOT_PASSWORD: blog
+      MYSQL_DATABASE: blog
+    volumes:
+      - type: volume
+        source: db-data
+        target: /var/lib/mysql
+    networks:
+      data:
+      database:
+        aliases:
+          - database
