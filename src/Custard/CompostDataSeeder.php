@@ -26,7 +26,7 @@ class CompostDataSeeder implements DemoDataSeederInterface
     /**
      * @param OutputInterface $output
      */
-    public function seedData(OutputInterface $output)
+    public function seedData(OutputInterface $output, $includeBulk = false)
     {
         // Make a new User that we can log in as
         $user = new User();

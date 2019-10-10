@@ -2,7 +2,6 @@
 
 namespace Your\WebApp\Leaves;
 
-
 use Rhubarb\Scaffolds\Authentication\LoginProviders\LoginProvider;
 use Rhubarb\Scaffolds\Authentication\User;
 

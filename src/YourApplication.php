@@ -10,6 +10,7 @@ use Rhubarb\Crown\Layout\LayoutModule;
 use Rhubarb\Crown\LoginProviders\LoginProvider;
 use Rhubarb\Crown\LoginProviders\UrlHandlers\ValidateLoginUrlHandler;
 use Rhubarb\Crown\String\StringTools;
+use Rhubarb\Crown\UrlHandlers\CallableUrlHandler;
 use Rhubarb\Crown\UrlHandlers\ClassMappedUrlHandler;
 use Rhubarb\Leaf\Crud\UrlHandlers\CrudUrlHandler;
 use Rhubarb\Leaf\LeafModule;
@@ -60,7 +61,9 @@ class YourApplication extends Application
         $this->addUrlHandlers(
             [
                 "/" => new ClassMappedUrlHandler(Index::class, [
-                    "login/" => new ClassMappedUrlHandler(Login::class),
+                    "login/" => new CallableUrlHandler(function() {
+                        return new Login(new SiteLogin());
+                        }),
                     "admin/" => new ClassMappedUrlHandler(Admin::class, [
                         "posts/" => new CrudUrlHandler(Post::class, StringTools::getNamespaceFromClass(PostsCollection::class)),
                         "users/" => new CrudUrlHandler(User::class, StringTools::getNamespaceFromClass(UsersCollection::class))
